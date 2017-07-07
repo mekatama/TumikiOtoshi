@@ -13,9 +13,9 @@ public class FutaMove : MonoBehaviour {
 		TumikiPut gc = gameController.GetComponent<TumikiPut>();
 		//蓋の開閉フラグを見る
 		if(gc.tumikiNagasu == true){
-			transform.position = new Vector2(-5.5f,-2.5f);	//強引にオブシェクトを動かす
+			transform.position = new Vector2(-5.5f,-1.1f);	//強引にオブシェクトを動かす
 		}else{
-			transform.position = new Vector2(0.0f,-2.5f);	//強引にオブシェクトを動かす
+			transform.position = new Vector2(0.0f,-1.1f);	//強引にオブシェクトを動かす
 		}
 	}
 }
