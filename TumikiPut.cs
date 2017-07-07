@@ -8,6 +8,17 @@ public class TumikiPut : MonoBehaviour {
 	public int tumikiNum = 0;		//生成したプレハブの数を保存(フタ開閉用)
 	public int tumikiNumAll = 0;	//生成したプレハブの数を保存(総数)
 	public bool tumikiNagasu = false;	//
+	AudioSource tapSound;			//AudioSourceコンポーネント取得用
+	ParticleSystem tapEffect;		//
+
+	public static bool tumikiOpen1 = false;
+	public static bool tumikiOpen2 = false;
+	public static bool tumikiOpen3 = false;
+
+	void Start () {
+		tapSound = GetComponent<AudioSource>();
+		tapEffect = GetComponent<ParticleSystem>();
+	}
 
 	void Update () {
 		GameObject obj = getClickObject();	//
@@ -23,19 +34,26 @@ public class TumikiPut : MonoBehaviour {
 			}else{
 	//			Debug.Log("x=" + vec.x + "y=" + vec.y);
 				Debug.Log("click=" + obj.tag);
+
+				tapEffect.transform.position = vec;
+				tapEffect.Emit(1);
+
 				int ran = Random.Range(0,3);											//ランダム
 				switch(ran){
 					case 0:
 						Instantiate(tumiki_01,vec,tumiki_01.transform.rotation);			//プレハフ生成
-//						obj = null;
+						tumikiOpen1 = true;
+						tapSound.Play();	//SE再生
 						break;
 					case 1:
 						Instantiate(tumiki_02,vec,tumiki_02.transform.rotation);			//プレハフ生成
-//						obj = null;
+						tumikiOpen2 = true;
+						tapSound.Play();	//SE再生
 						break;
 					case 2:
 						Instantiate(tumiki_03,vec,tumiki_03.transform.rotation);			//プレハフ生成
-//						obj = null;
+						tumikiOpen3 = true;
+						tapSound.Play();	//SE再生
 						break;
 				}
 				tumikiNum += 1;
