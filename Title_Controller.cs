@@ -7,8 +7,13 @@ public class Title_Controller : MonoBehaviour {
 	void Update(){
 		//backキー
 		if (Input.GetKeyUp(KeyCode.Escape)){
-			Application.Quit();
+			Application.Quit();	//アプリ終了
 		}
+	}
+
+	//アプリ終了
+	public void OnExit(){
+		Application.Quit();	//アプリ終了
 	}
 
 	//スタートボタン用の制御関数
@@ -29,11 +34,5 @@ public class Title_Controller : MonoBehaviour {
 	//コレクション画面へ行くボタン用の制御関数
 	public void OnCollectionButtonClicked(){
 		SceneManager.LoadScene("Collection");	//シーンのロード
-	}
-
-	//アプリ終了
-	public void OnExit(){
-		Application.Quit();
-		Debug.Log("exit");
 	}
 }
