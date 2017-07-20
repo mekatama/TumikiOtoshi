@@ -3,11 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class UI_TumikiScore : MonoBehaviour {
-
 	public Text scoreLabel;
-//	public GameObject player;
-//	public int total_Score = 0;	//表示される合計スコア
-
 	GameObject gameController;	//検索したオブジェクト入れる用
 
 	void Start(){
